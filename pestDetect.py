@@ -12,7 +12,7 @@ from scipy import ndimage
 
 def conversion():
     #os.system()
-    image = cv2.imread('pestimg.jpeg')
+    image = cv2.imread('pestimg.jpg')
     
     # gray_image = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
     hsv = cv2.cvtColor(image,cv2.COLOR_BGR2HSV)
@@ -62,7 +62,7 @@ def averagefilter():
 
 
 def segmentation():
-    image = cv2.imread('averaged.png')
+    image = cv2.imread('pestimg.jpg')
     gray = cv2.cvtColor(image,cv2.COLOR_BGR2GRAY)
     ret, thresh = cv2.threshold(gray,0,255,cv2.THRESH_BINARY_INV+cv2.THRESH_OTSU)
     cv2.imwrite('thresh_image.jpg',thresh)
@@ -72,26 +72,28 @@ def segmentation():
 
      # noise removal
     kernel = np.ones((3,3),np.uint8)
-    opening = cv2.morphologyEx(thresh,cv2.MORPH_OPEN,kernel, iterations = 7)
+    opening = cv2.morphologyEx(thresh,cv2.MORPH_OPEN,kernel, iterations = 6)
     cv2.imshow('opening',thresh)
     cv2.waitKey(0)                 # Waits forever for user to press any key   
     cv2.destroyAllWindows()
 
      
     # sure background area
-    sure_bg = cv2.dilate(opening,kernel,iterations=3)
+    sure_bg = cv2.dilate(opening,kernel,iterations=5)
     cv2.imshow('sure_bg',sure_bg)
     cv2.waitKey(0)                 # Waits forever for user to press any key   
     cv2.destroyAllWindows()
     print("No. of pests in the image: ")
     labelarray, particle_count = ndimage.measurements.label(sure_bg)
+    # labelarray, particle_count = ndimage.measurements.label(opening)
+
     print(particle_count)
     #pylab.figure(1)
     #pylab.imshow(im_thresholded)
     #pylab.show()
 
 def createHistogram():
-    img = cv2.imread('pestimg.jpeg')
+    img = cv2.imread('pestimg.jpg')
     histr = cv2.calcHist([img],[0],None,[256],[0,256]) 
   
     # show the plotting graph of an image 
@@ -102,5 +104,5 @@ conversion()
 gaussianTest()
 # gaussian()
 # averagefilter()
-# segmentation()
+segmentation()
 createHistogram()
