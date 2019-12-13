@@ -7,17 +7,17 @@
 ### 2. Aman Gupta (USN : 1MS17IS015)
 ### 3. R. Anurag Pillai (USN : 1MS17IS145)
 
-# DATASET : Code/SVMClassifier
-# CODE : Code/
-# Base Paper : Papers/
-# Output: Output/
+### CODE : Code/
+### DATASET : Code/SVMClassifier
+### Base Paper : Papers/
+### Output: Output/
 
 ## TESTING
 --------------
 
 1. Clone the repo
 2. Go to the folder through the terminal and install the dependencies.
-3. cd code
+3. cd Code
 4. python3 pestDetect.py
 5. Press any button to destroy the windows except the last one(Histogram).
 
