@@ -1,3 +1,12 @@
+# PEST DETECTION and IDENTICATION using SVM Classifier and OpenCV
+
+# MEMBERS:
+-----------
+
+### 1. Ayush Ujjwal (USN:1MS17IS033)
+### 2. Aman Gupta (USN : 1MS17IS015)
+### 3. R. Anurag Pillai (USN : 1MS17IS145)
+
 # DATASET : Code/SVMClassifier
 # CODE : Code/
 # Base Paper : Papers/
